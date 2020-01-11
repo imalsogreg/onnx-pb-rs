@@ -9,7 +9,7 @@ ONNX protocol buffers messages for Rust.
 
 ```Toml
 [dependencies]
-onnx-pb = "^0.0.3"
+onnx-pb = "^0.0.4"
 ```
 
 ## License
