@@ -1,0 +1,19 @@
+[package]
+name = "onnx-pb-rs"
+version = "0.1.0"
+authors = ["Łukasz Kurowski <crackcomm@gmail.com>"]
+edition = "2018"
+license = "MIT"
+description = "ONNX protocol buffers messages."
+homepage = "https://github.com/crackcomm/onnx-pb-rs"
+repository = "https://github.com/crackcomm/onnx-pb-rs.git"
+build = "build.rs"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+prost = { version = "^0.5.0", git = "https://github.com/danburkert/prost.git" }
+bytes = "^0.5.0"
+
+[build-dependencies]
+prost-build = { version = "^0.5.0", git = "https://github.com/danburkert/prost.git" }
