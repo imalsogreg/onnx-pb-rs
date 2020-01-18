@@ -15,10 +15,18 @@ impl From<String> for dimension::Value {
     }
 }
 
+impl<T: Into<Dimension>> From<Vec<T>> for TensorShapeProto {
+    fn from(v: Vec<T>) -> Self {
+        TensorShapeProto {
+            dim: v.into_iter().map(Into::into).collect(),
+        }
+    }
+}
+
 impl<V: Into<dimension::Value>> From<V> for Dimension {
     fn from(v: V) -> Self {
         tensor_shape_proto::Dimension {
-            denotation: "".to_owned(),
+            denotation: String::default(),
             value: Some(v.into()),
         }
     }
