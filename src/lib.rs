@@ -1,7 +1,10 @@
 include!(concat!(env!("OUT_DIR"), "/onnx.rs"));
 
-use self::tensor_proto::DataType;
-use self::tensor_shape_proto::{dimension, Dimension};
+use self::{
+    tensor_proto::DataType,
+    tensor_shape_proto::{dimension, Dimension},
+    type_proto::{Tensor, Value},
+};
 
 impl From<i64> for dimension::Value {
     fn from(v: i64) -> Self {
@@ -156,6 +159,18 @@ impl From<Vec<u64>> for TensorProto {
             uint64_data: data,
             data_type: DataType::Uint64 as i32,
             ..TensorProto::default()
+        }
+    }
+}
+
+impl From<DataType> for TypeProto {
+    fn from(typ: DataType) -> TypeProto {
+        TypeProto {
+            denotation: "".to_owned(),
+            value: Some(Value::TensorType(Tensor {
+                elem_type: typ as i32,
+                shape: None,
+            })),
         }
     }
 }
