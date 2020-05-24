@@ -1,3 +1,9 @@
+mod attrs;
+mod util;
+
+pub use self::attrs::*;
+pub use self::util::*;
+
 include!(concat!(env!("OUT_DIR"), "/onnx.rs"));
 
 use self::{
