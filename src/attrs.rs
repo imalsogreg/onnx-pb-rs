@@ -83,7 +83,7 @@ impl From<Vec<&str>> for Attribute {
 }
 
 /// Creates a new attribute struct.
-pub(crate) fn make_attribute<S: Into<String>, A: Into<Attribute>>(
+pub fn make_attribute<S: Into<String>, A: Into<Attribute>>(
     name: S,
     attribute: A,
 ) -> AttributeProto {
