@@ -1,3 +1,3 @@
 fn main() {
-    prost_build::compile_protos(&["onnx/onnx.proto3"], &["third_party/onnx"]).unwrap();
+    prost_build::compile_protos(&["onnx.proto3"], &["vendored/onnx"]).unwrap();
 }
